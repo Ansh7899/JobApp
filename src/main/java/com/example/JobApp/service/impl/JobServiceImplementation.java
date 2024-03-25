@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.integration.IntegrationAutoConfigu
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -20,8 +21,32 @@ public class JobServiceImplementation implements JobService {
     }
 
     @Override
+    public Job findJobById(Integer id) {
+        for (Job job: jobs) {
+            if (job.getId().equals(id))
+                return job;
+        }
+        return null;
+    }
+
+    @Override
     public void createJob(Job job) {
         job.setId(jobId++);
         jobs.add(job);
     }
+
+    @Override
+    public Boolean deleteJob(Integer id) {
+        Iterator<Job> iterator = jobs.iterator();
+
+        while (iterator.hasNext()) {
+            Job job = iterator.next();
+            if (job.getId().equals(id)) {
+                jobs.remove(id);
+                return true;
+            }
+        }
+        return false;
+    }
+
 }
