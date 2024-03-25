@@ -2,14 +2,14 @@ package com.example.JobApp.model;
 
 public class Job {
 
-    private String id;
+    private Integer id;
     private String title;
     private String detination;
     private Integer minSalary;
     private Integer maxSalary;
     private String location;
 
-    public Job(String id, String title, String detination,
+    public Job(Integer id, String title, String detination,
                Integer minSalary, Integer maxSalary, String location) {
         this.id = id;
         this.title = title;
@@ -19,7 +19,7 @@ public class Job {
         this.location = location;
     }
 
-    public String getId() {
+    public Integer getId() {
         return id;
     }
 
@@ -43,7 +43,7 @@ public class Job {
         return location;
     }
 
-    public void setId(String id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
