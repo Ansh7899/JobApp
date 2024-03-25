@@ -5,9 +5,7 @@ import com.example.JobApp.service.JobService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.service.annotation.DeleteExchange;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
