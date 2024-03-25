@@ -4,16 +4,16 @@ public class Job {
 
     private Integer id;
     private String title;
-    private String detination;
+    private String destination;
     private Integer minSalary;
     private Integer maxSalary;
     private String location;
 
-    public Job(Integer id, String title, String detination,
+    public Job(Integer id, String title, String destination,
                Integer minSalary, Integer maxSalary, String location) {
         this.id = id;
         this.title = title;
-        this.detination = detination;
+        this.destination = destination;
         this.minSalary = minSalary;
         this.maxSalary = maxSalary;
         this.location = location;
@@ -27,8 +27,8 @@ public class Job {
         return title;
     }
 
-    public String getDetination() {
-        return detination;
+    public String getDestination() {
+        return destination;
     }
 
     public Integer getMinSalary() {
@@ -51,8 +51,8 @@ public class Job {
         this.title = title;
     }
 
-    public void setDetination(String detination) {
-        this.detination = detination;
+    public void setDestination(String destination) {
+        this.destination = destination;
     }
 
     public void setMinSalary(Integer minSalary) {

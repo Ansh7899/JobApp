@@ -9,4 +9,5 @@ public interface JobService {
     Job findJobById(Integer id);
     void createJob(Job job);
     Boolean deleteJob(Integer id);
+    Boolean updateJob(Integer id, Job job);
 }

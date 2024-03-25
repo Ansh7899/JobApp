@@ -2,11 +2,9 @@ package com.example.JobApp.service.impl;
 
 import com.example.JobApp.model.Job;
 import com.example.JobApp.service.JobService;
-import org.springframework.boot.autoconfigure.integration.IntegrationAutoConfiguration;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 
 @Service
@@ -37,12 +35,26 @@ public class JobServiceImplementation implements JobService {
 
     @Override
     public Boolean deleteJob(Integer id) {
-        Iterator<Job> iterator = jobs.iterator();
 
-        while (iterator.hasNext()) {
-            Job job = iterator.next();
+        for (Job job : jobs) {
             if (job.getId().equals(id)) {
                 jobs.remove(id);
+                return true;
+            }
+        }
+        return false;
+    }
+
+    @Override
+    public Boolean updateJob(Integer id, Job updatedJob) {
+
+        for (Job job : jobs) {
+            if (job.getId().equals(id)) {
+                job.setTitle(updatedJob.getTitle());
+                job.setDestination(updatedJob.getDestination());
+                job.setMaxSalary(updatedJob.getMaxSalary());
+                job.setMinSalary(updatedJob.getMinSalary());
+                job.setLocation(updatedJob.getLocation());
                 return true;
             }
         }
