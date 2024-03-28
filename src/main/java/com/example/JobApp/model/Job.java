@@ -1,13 +1,23 @@
 package com.example.JobApp.model;
 
+import jakarta.persistence.*;
+
+@Entity
 public class Job {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     private String title;
     private String destination;
     private Integer minSalary;
     private Integer maxSalary;
     private String location;
+
+//    this is needed by JPA to instantiate objects using retrieved data
+    public Job() {
+
+    }
 
     public Job(Integer id, String title, String destination,
                Integer minSalary, Integer maxSalary, String location) {
