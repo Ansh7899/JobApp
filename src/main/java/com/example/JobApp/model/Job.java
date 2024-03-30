@@ -14,6 +14,11 @@ public class Job {
     private Integer maxSalary;
     private String location;
 
+//    Many to one mapping added as many jobs can be linked to a single company
+//    While creating job we can just pass id of the company and this mapping will automatically take care of the job to company mapping
+    @ManyToOne
+    private Company company;
+
 //    this is needed by JPA to instantiate objects using retrieved data
     public Job() {
 
@@ -75,5 +80,13 @@ public class Job {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    public Company getCompany() {
+        return company;
+    }
+
+    public void setCompany(Company company) {
+        this.company = company;
     }
 }

@@ -1,5 +1,6 @@
 package com.example.JobApp.model;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 
 import java.util.List;
@@ -14,7 +15,10 @@ public class Company {
 
 //    This means that it has a one-to-many relationship with Job table
 //    meaning one company can have several jobs
-    @OneToMany
+//    mapped by parameter basically tells that within the Job Entity, we have a field company which maps the relationship
+//    JsonIgnore is used to remove the recursive calls between job and company dependencies
+    @JsonIgnore 
+    @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
 
