@@ -24,6 +24,15 @@ public class Job {
 
     }
 
+    public Job(Long id, String title, String destination, Integer minSalary, Integer maxSalary, String location, Company company) {
+        this.id = id;
+        this.title = title;
+        this.destination = destination;
+        this.minSalary = minSalary;
+        this.maxSalary = maxSalary;
+        this.location = location;
+        this.company = company;
+    }
 
     public Long getId() {
         return id;
