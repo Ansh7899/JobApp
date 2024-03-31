@@ -7,7 +7,7 @@ public class Job {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
     private String title;
     private String destination;
     private Integer minSalary;
@@ -24,17 +24,8 @@ public class Job {
 
     }
 
-    public Job(Integer id, String title, String destination,
-               Integer minSalary, Integer maxSalary, String location) {
-        this.id = id;
-        this.title = title;
-        this.destination = destination;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.location = location;
-    }
 
-    public Integer getId() {
+    public Long getId() {
         return id;
     }
 
@@ -58,7 +49,7 @@ public class Job {
         return location;
     }
 
-    public void setId(Integer id) {
+    public void setId(Long id) {
         this.id = id;
     }
 

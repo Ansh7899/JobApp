@@ -17,7 +17,7 @@ public class Company {
 //    meaning one company can have several jobs
 //    mapped by parameter basically tells that within the Job Entity, we have a field company which maps the relationship
 //    JsonIgnore is used to remove the recursive calls between job and company dependencies
-    @JsonIgnore 
+    @JsonIgnore
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
 
