@@ -59,15 +59,20 @@ public class ReviewServiceImplementation implements ReviewService {
         return false;
     }
 
+//    We first fetch company and specific review
+//    then delete the review from the company table
+//    then delete the review from the review table as well
+//    Since it is a bidirectional mapping we need to do it in such way
     @Override
     public Boolean deleteReviewById(Long companyId, Long reviewId) {
-        List<Review> reviewList = findAllReviews(companyId);
-        Review review = reviewList.stream()
-                .filter(review1 -> review1.getId().equals(reviewId))
-                .findFirst()
-                .orElse(null);
-        if (review != null){
-            reviewRepository.delete(review);
+        if(companyService.findCompanyById(companyId) != null &&
+            reviewRepository.existsById(reviewId)){
+            Review review = reviewRepository.findById(reviewId).orElse(null);
+            Company company = companyService.findCompanyById(companyId);
+            company.getReviews().remove(review);
+            review.setCompany(null);
+            companyService.updateCompany(companyId, company);
+            reviewRepository.deleteById(reviewId);
             return true;
         }
         return false;
