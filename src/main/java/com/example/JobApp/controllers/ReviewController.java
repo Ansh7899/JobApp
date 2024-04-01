@@ -39,7 +39,7 @@ public class ReviewController {
                 HttpStatus.NOT_FOUND);
     }
 
-    @GetMapping("/reviews/{reviewId")
+    @GetMapping("/reviews/{reviewId}")
     public ResponseEntity<Review> getReviewById(@PathVariable Long companyId,
                                                 @PathVariable Long reviewId) {
         Review review = reviewService.getSpecificReview(companyId, reviewId);
@@ -50,7 +50,7 @@ public class ReviewController {
                 HttpStatus.NOT_FOUND);
     }
 
-    @PutMapping("/reviews/{reviewId")
+    @PutMapping("/reviews/{reviewId}")
     public ResponseEntity<String> updateReview(@PathVariable Long companyId,
                                                 @PathVariable Long reviewId,
                                                @RequestBody Review review) {
