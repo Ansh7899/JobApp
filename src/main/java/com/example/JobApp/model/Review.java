@@ -9,7 +9,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Data
 public class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

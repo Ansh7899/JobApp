@@ -31,7 +31,7 @@ public class JobServiceImplementation implements JobService {
 
     @Override
     public void createJob(Job job) {
-        jobRepository.save(job);
+        jobRepository.saveAndFlush(job);
     }
 
     @Override
@@ -55,7 +55,7 @@ public class JobServiceImplementation implements JobService {
                 job.setMinSalary(updatedJob.getMinSalary());
                 job.setLocation(updatedJob.getLocation());
                 job.setCompany(updatedJob.getCompany());
-                jobRepository.save(job);
+                jobRepository.saveAndFlush(job);
                 return true;
             }
         return false;

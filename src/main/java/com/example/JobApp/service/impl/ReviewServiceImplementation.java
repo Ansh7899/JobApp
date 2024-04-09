@@ -29,7 +29,7 @@ public class ReviewServiceImplementation implements ReviewService {
         Company company = companyService.findCompanyById(companyId);
         if(company != null) {
             review.setCompany(company);
-            reviewRepository.save(review);
+            reviewRepository.saveAndFlush(review);
             return true;
         }
         return false;
@@ -53,7 +53,7 @@ public class ReviewServiceImplementation implements ReviewService {
             updatedReview.setDescription(updatedReview.getDescription());
             updatedReview.setRating(updatedReview.getRating());
             updatedReview.setTitle(updatedReview.getTitle());
-            reviewRepository.save(updatedReview);
+            reviewRepository.saveAndFlush(updatedReview);
             return true;
         }
         return false;

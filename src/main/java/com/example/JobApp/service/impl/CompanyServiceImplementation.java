@@ -29,7 +29,7 @@ public class CompanyServiceImplementation implements CompanyService {
 
     @Override
     public void createJob(Company company) {
-        companyRepository.save(company);
+        companyRepository.saveAndFlush(company);
     }
 
     @Override
@@ -51,7 +51,7 @@ public class CompanyServiceImplementation implements CompanyService {
             company.setDescription(updatedCompany.getDescription());
             company.setJobs(updatedCompany.getJobs());
             company.setReviews(updatedCompany.getReviews());
-            companyRepository.save(company);
+            companyRepository.saveAndFlush(company);
             return true;
         }
         return false;

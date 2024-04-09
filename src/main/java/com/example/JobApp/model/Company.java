@@ -11,7 +11,6 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Data
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -19,7 +18,7 @@ public class Company {
     private String name;
     private String description;
 
-//    This means that it has a one-to-many relationship with Job table
+//    This means that it has a one-to-many relationship with Job table,
 //    meaning one company can have several jobs
 //    mapped by parameter basically tells that within the Job Entity, we have a field company which maps the relationship
 //    JsonIgnore is used to remove the recursive calls between job and company dependencies
@@ -29,12 +28,6 @@ public class Company {
 
     @OneToMany(mappedBy = "company")
     private List<Review> reviews;
-
-    public Company(long id, String name, String description) {
-        this.id = id;
-        this.name = name;
-        this.description = description;
-    }
 
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
