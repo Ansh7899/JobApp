@@ -1,14 +1,12 @@
 package com.example.JobApp.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@AllArgsConstructor
 @Entity
 @Data
 public class Job {
@@ -26,15 +24,5 @@ public class Job {
 //    While creating job we can just pass id of the company and this mapping will automatically take care of the job to company mapping
     @ManyToOne
     private Company company;
-
-    public Job(Long id, String title, String destination, Integer minSalary, Integer maxSalary, String location, Company company) {
-        this.id = id;
-        this.title = title;
-        this.destination = destination;
-        this.minSalary = minSalary;
-        this.maxSalary = maxSalary;
-        this.location = location;
-        this.company = company;
-    }
 
 }

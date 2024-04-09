@@ -2,10 +2,16 @@ package com.example.JobApp.model;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.*;
 
 import java.util.List;
 
+@Getter
+@Setter
+@NoArgsConstructor
+@AllArgsConstructor
 @Entity
+@Data
 public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,38 +30,14 @@ public class Company {
     @OneToMany(mappedBy = "company")
     private List<Review> reviews;
 
-    public Company(){
-
-    }
-
     public Company(long id, String name, String description) {
         this.id = id;
         this.name = name;
         this.description = description;
     }
 
-    public List<Review> getReviews() {
-        return reviews;
-    }
-
     public void setReviews(List<Review> reviews) {
         this.reviews = reviews;
-    }
-
-    public List<Job> getJobs() {
-        return jobs;
-    }
-
-    public long getId() {
-        return id;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public String getDescription() {
-        return description;
     }
 
     public void setId(long id) {
