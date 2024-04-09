@@ -44,8 +44,18 @@
 			<artifactId>spring-boot-starter-actuator</artifactId>
 		</dependency>
 
-	</dependencies>
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
 
+	</dependencies>
+<!--This dependency will help in containerizing our application as well by creating the docker image by analyzing the requirements of the application-->
 	<build>
 		<plugins>
 			<plugin>
